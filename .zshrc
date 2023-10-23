@@ -13,6 +13,7 @@ source $ZSH/oh-my-zsh.sh
 alias tf="terraform"
 alias vim="nvim"
 alias lg="lazygit"
+alias pip="pip3"
 
 # Starship
 eval "$(starship init zsh)"
