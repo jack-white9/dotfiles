@@ -5,6 +5,8 @@ This repository contains the dotfiles that I use for macOS development, includin
 ## Prerequisites
 
 - [Homebrew](https://brew.sh/)
+- [oh-my-zsh](https://ohmyz.sh/#install)
+- [Starship](https://starship.rs/installing/)
 
 ## Installation
 
