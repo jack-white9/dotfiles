@@ -45,6 +45,11 @@ local default_plugins = {
   },
 
   {
+    "github/copilot.vim",
+    lazy = false,
+  },
+
+  {
     "nvim-tree/nvim-web-devicons",
     opts = function()
       return { override = require "nvchad.icons.devicons" }
