@@ -1,6 +1,6 @@
 ---@type ChadrcConfig
 local M = {}
 
-M.ui = { theme = 'nord' }
+M.ui = { theme = 'onenord' }
 
 return M
