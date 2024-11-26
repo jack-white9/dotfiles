@@ -16,12 +16,13 @@ if [[ $input =~ ^[Yy]$ ]]; then
     rm "$HOME/.zshrc"
     rm "$HOME/.config/starship.toml"
     rm "$HOME/.config/alacritty/alacritty.toml"
+    rmdir "$HOME/.config/alacritty/"
     rm -rf "$HOME/.config/nvim"
 
     # Create symlinks for dotfile configs
-    ln -s "$REPO_DIR/.zshrc" "$HOME/.zshrc"
-    ln -s "$REPO_DIR/starship.toml" "$HOME/.config/starship.toml"
-    mkdir "$HOME/.config/alacritty" &&  ln -s "$REPO_DIR/alacritty.toml" "$HOME/.config/alacritty/alacritty.toml"
+    ln -s "$REPO_DIR/dotfiles/.zshrc" "$HOME/.zshrc"
+    ln -s "$REPO_DIR/dotfiles/starship.toml" "$HOME/.config/starship.toml"
+    mkdir "$HOME/.config/alacritty" &&  ln -s "$REPO_DIR/dotfiles/alacritty.toml" "$HOME/.config/alacritty/alacritty.toml"
     ln -s "$REPO_DIR/nvim/" "$HOME/.config/nvim"
 
     # Confirm success
