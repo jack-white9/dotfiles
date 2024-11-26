@@ -4,7 +4,6 @@ This repository contains the dotfiles that I use for macOS development, includin
 
 ## Prerequisites
 
-- [iTerm2](https://iterm2.com/) (**optional:** [enable natural text editing](https://gist.github.com/seachai/948ed1eeafa32ce03db6685edb879f71))
 - [Homebrew](https://brew.sh/)
 - [oh-my-zsh](https://ohmyz.sh/#install)
 - [Starship](https://starship.rs/installing/)
@@ -18,3 +17,6 @@ chmod +x ./bootstrap.sh
 ./bootstrap.sh
 ```
 
+## Self-Signing Alacritty
+
+When using Alacritty, the app must be self-signed to avoid the `"Alacritty can't be opened because it is from an unidentified developer"` error. To do this, follow these instructions: https://github.com/alacritty/alacritty/wiki/Self-Signing-Alacritty-on-macOS
