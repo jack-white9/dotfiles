@@ -5,6 +5,7 @@ REPO_DIR=$(git rev-parse --show-toplevel)
 # Remove existing dotfile configs (clean slate)
 rm -f "$HOME/.zshrc"
 rm -f "$HOME/.config/starship.toml"
+rm -rf "$HOME/.oh-my-zsh"
 rm -rf "$HOME/.config/alacritty"
 rm -rf "$HOME/.config/nvim"
 rm -rf "$HOME/Library/Application Support/lazygit"
@@ -19,32 +20,30 @@ ln -s "$REPO_DIR/nvim/" "$HOME/.config/nvim"
 print -P "%F{green}Symlinks created."
 
 # Install oh-my-zsh
-#TODO
-
-# Install neovim
-#TODO
+print -P "%F{green}Installing oh-my-zsh..."
+print -P "%F{red}NOTE: INTERACTIVE PROMPT WILL APPEAR. TYPE 'exit' TO CONTINUE INSTALLATION."
+echo "export ZSH=\"$HOME/.oh-my-zsh\"" >> "$HOME/.zshrc"
+print -P "%F{green}oh-my-zsh installed."
 
 # Install starship
-#TODO
+print -P "%F{green}Installing starship..."
+sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+print -P "%F{green}starship installed."
 
 # Install Homebrew
-TEMP_DIR=$(mktemp -d)
-HOMEBREW_URL="https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
 print -P "%F{green}Installing Homebrew..."
-curl -fsSL "$HOMEBREW_URL" -o "$TEMP_DIR/install.sh"
-/bin/bash "$TEMP_DIR/install.sh"
-rm -rf "$TEMP_DIR"
+sh -c $(curl -fsSL "https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh")
 print -P "%F{green}Homebrew installed."
 
 # Install Homebrew apps
 print -P "%F{green}Installing Homebrew apps..."
-brew install awscli helm kubectx k8sec lazygit ripgrep tfenv tflint terraform-docs tree-sitter
+brew install awscli helm kubectx k8sec lazygit neovim ripgrep tfenv tflint terraform-docs tree-sitter
 print -P "%F{green}Homebrew apps installed."
 
 # Install Rust (dependency for Alacritty)
 print -P "%F{green}Installing Rust..."
 curl https://sh.rustup.rs -sSf | sh
-"export PATH=$HOME/.cargo/bin:$PATH" >> "$HOME/.zshrc"
+echo "export PATH=$HOME/.cargo/bin:\$PATH" >> "$HOME/.zshrc"
 source "$HOME/.zshrc"
 print -P "%F{green}Rust installed."
 
@@ -64,4 +63,5 @@ cp "$REPO_DIR/fonts/HackNerdFontMono-Regular-Patched.ttf" "$HOME/Library/Fonts/"
 print -P "%F{green}Hack Nerd Font installed."
 
 # Confirm success
+source ~/.zshrc
 print -P "%F{green}\nSuccess! Installation completed."
