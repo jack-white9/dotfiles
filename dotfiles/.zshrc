@@ -19,5 +19,9 @@ alias kcf="kraken cloudfarer"
 # Starship
 eval "$(starship init zsh)"
 
+# Homebrew
 export PATH=/opt/homebrew/bin:$PATH
 export PATH=/opt/homebrew/Cellar/**/bin:$PATH
+
+# Rust
+export PATH=/Users/jack.white/.cargo/bin:$PATH

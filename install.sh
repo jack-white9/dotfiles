@@ -10,6 +10,13 @@ rm -rf "$HOME/.config/alacritty"
 rm -rf "$HOME/.config/nvim"
 rm -rf "$HOME/Library/Application Support/lazygit"
 
+# Install oh-my-zsh
+print -P "%F{green}Installing oh-my-zsh..."
+print -P "%F{red}NOTE: INTERACTIVE PROMPT WILL APPEAR. TYPE 'exit' TO CONTINUE INSTALLATION."
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+rm -f "$HOME/.zshrc"
+print -P "%F{green}oh-my-zsh installed."
+
 # Create symlinks for dotfile configs
 print -P "%F{green}Creating symlinks for dotfile configs..."
 mkdir "$HOME/.config/alacritty"
@@ -18,12 +25,6 @@ ln -s "$REPO_DIR/dotfiles/starship.toml" "$HOME/.config/starship.toml"
 ln -s "$REPO_DIR/dotfiles/alacritty.toml" "$HOME/.config/alacritty/alacritty.toml"
 ln -s "$REPO_DIR/nvim/" "$HOME/.config/nvim"
 print -P "%F{green}Symlinks created."
-
-# Install oh-my-zsh
-print -P "%F{green}Installing oh-my-zsh..."
-print -P "%F{red}NOTE: INTERACTIVE PROMPT WILL APPEAR. TYPE 'exit' TO CONTINUE INSTALLATION."
-echo "export ZSH=\"$HOME/.oh-my-zsh\"" >> "$HOME/.zshrc"
-print -P "%F{green}oh-my-zsh installed."
 
 # Install starship
 print -P "%F{green}Installing starship..."
@@ -43,7 +44,6 @@ print -P "%F{green}Homebrew apps installed."
 # Install Rust (dependency for Alacritty)
 print -P "%F{green}Installing Rust..."
 curl https://sh.rustup.rs -sSf | sh
-echo "export PATH=$HOME/.cargo/bin:\$PATH" >> "$HOME/.zshrc"
 source "$HOME/.zshrc"
 print -P "%F{green}Rust installed."
 
