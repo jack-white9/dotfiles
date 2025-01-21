@@ -19,7 +19,7 @@ bindings = [
 
 # OneNord theme
 [colors.primary]
-background = "#2e3440"
+background = "#2a303c"
 foreground = "#d8dee9"
 
 [colors.normal]
