@@ -9,6 +9,7 @@ rm -rf "$HOME/.oh-my-zsh"
 rm -rf "$HOME/.config/alacritty"
 rm -rf "$HOME/.config/nvim"
 rm -rf "$HOME/Library/Application Support/lazygit"
+rm -rf "$HOME/Library/Application Support/k9s"
 
 # Install oh-my-zsh
 print -P "%F{green}Installing oh-my-zsh..."
@@ -24,6 +25,7 @@ ln -s "$REPO_DIR/dotfiles/.zshrc" "$HOME/.zshrc"
 ln -s "$REPO_DIR/dotfiles/starship.toml" "$HOME/.config/starship.toml"
 ln -s "$REPO_DIR/dotfiles/alacritty.toml" "$HOME/.config/alacritty/alacritty.toml"
 ln -s "$REPO_DIR/nvim/" "$HOME/.config/nvim"
+ln -s "$REPO_DIR/k9s" "$HOME/Library/Application Support/k9s"
 print -P "%F{green}Symlinks created."
 
 # Install starship
